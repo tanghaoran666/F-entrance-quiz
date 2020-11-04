@@ -6,6 +6,8 @@ body {
   background-color: $bg-gray;
   padding: 10px 40px;
 }
+// /*TODO GTB-工程实践: - 在这个reboot.scss文件里面，你写的所有的css都不应该写在这个文件里。*/
+/*TODO GTB-知识点: - 每个组件应该有一个单独的样式文件，属于这个组件的样式，就应该写入组件自己的样式文件*/
 
 .group-title {
   display: flex;

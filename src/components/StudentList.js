@@ -14,6 +14,7 @@ class StudentList extends Component {
     this.initFunction();
   };
 
+  // TODO GTB-工程实践: - 方法的命名没有体现业务逻辑
   initFunction = async () => {
     try {
       const data = await fetch('http://localhost:8080/students', {
@@ -31,6 +32,7 @@ class StudentList extends Component {
   handleChange = (event) => {
     this.setState({ name: event.target.value });
   };
+// TODO GTB-工程实践: - 方法命名没有体现业务逻辑。
 
   handleKeyDown = async (event) => {
     if (event.keyCode === 13) {
@@ -47,6 +49,7 @@ class StudentList extends Component {
     this.setState({ visible: true });
   };
 
+  // TODO GTB-工程实践: - API请求应该被提取到公共组件
   addStudent = async () => {
     try {
       await fetch('http://localhost:8080/student', {
@@ -58,6 +61,7 @@ class StudentList extends Component {
       });
       this.initFunction();
     } catch (err) {
+      // TODO GTB-工程实践: - console.log不应该被提交
       console.log(err);
     }
   };
@@ -81,7 +85,9 @@ class StudentList extends Component {
             value={this.state.name}
             placeholder="请填写名字后按下回车"
             className="student-input"
+            // TODO GTB-知识点: - 使用onKeyUp更合适
             onKeyDown={this.handleKeyDown}
+            // TODO GTB-完成度: - 需求是要添加学员的按钮和这个input是互斥的shown和hidden,而不是input自己shown和hidden哈
             hidden={!this.state.visible}
           />
         </div>
